@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="libraries/jquery-linedtextarea/jquery-linedtextarea.css">
+    <title>Plaintext to CSV Converter for Brightspace Quiz</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Plaintext to CSV Converter for Brightspace Quiz</h1>
+                <h2>Instructions</h2>
+                <p><strong>Questions should follow the following format:</strong></p>
+                <hr>
+                <p>Question<br>Answer<br>*Correct Answer<br>Answer<br>Answer</p>
+                <hr>
+                <p>Each question should be separated by an empty line. The first line in each block of lines must always be the question. Designate the question as an 'All That Apply' type question simply by indicating more than one correct answer. Press the <strong>Format Text</strong> button to trim whitespaces and concurrent empty lines. All text is automatically trimmed of whitespace. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-12">
+                <h2>Plain Text Input</h2><textarea rows="29" id="plaintextInput"></textarea><button onclick="Format()" class="runButtons">Format Text</button><button onclick="ConvertQuiz()" class="runButtons">Convert to CSV</button>
+            </div>
+            <div class="col col-md-12">
+                <h2>CSV Output</h2><textarea rows="29" id="csvOutput" readonly></textarea><button onclick="CopyToClipboard()" class="runButtons">Copy to Clipboard</button><a id="downloadButton" class="runButtons" role="button" href="" disabled>Download .csv File</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- CSV Converter js -->
+    <script src="js/csv.js" type="text/javascript"></script>
+    <script src="libraries/jquery-linedtextarea/jquery-linedtextarea.js" type="text/javascript"></script>
+    <script src="js/pageScripts.js"></script>
+</body>
+
+</html>
