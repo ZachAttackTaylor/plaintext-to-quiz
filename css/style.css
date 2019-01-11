@@ -1,38 +1,38 @@
 .container-fluid {
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {}
 
 textarea {
-  width: 100%;
-  border: 3px solid black;
+    width: 100%;
+    border: 3px solid black;
 }
 
 .runButtons {
-  width: 50%;
-  background-color: white;
-  display: inline-block;
-  border: 3px solid black;
-  text-align: center;
-  padding: 1px 6px;
-  color: black;
+    width: 100%;
+    background-color: white;
+    display: inline-block;
+    border: 3px solid black;
+    text-align: center;
+    padding: 1px 6px;
+    color: black;
 }
 
 
 .runButtons:hover {
-  background-color: black;
-  color: white;
-  text-decoration: none;
+    background-color: black;
+    color: white;
+    text-decoration: none;
 }
 
 .runButtons:disabled {
-  background-color: gray;
-  cursor: not-allowed;
+    background-color: gray;
+    cursor: not-allowed;
 }
 
 .linedwrap {
-  border: 3px solid black !important;
+    border: 3px solid black !important;
 }
