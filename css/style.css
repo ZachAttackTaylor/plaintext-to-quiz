@@ -36,3 +36,23 @@ textarea {
 .linedwrap {
     border: 3px solid black !important;
 }
+
+.label {
+    display: inline;
+    margin-right: 15px;
+}
+
+#score-input {
+    display: inline;
+    width: 75px;
+}
+
+#difficulty-input {
+    display: inline;
+    width: 75px;
+}
+
+.form-row .col {
+    display: flex;
+    align-items: center;
+}

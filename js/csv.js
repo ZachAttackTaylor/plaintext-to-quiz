@@ -20,7 +20,13 @@ var errorHandler = {
             $('.alert').remove();
         }
     }
-}
+};
+
+var config = {
+    questionScore: 1,
+    difficultyScore: 1,
+    removeEnumeration: false
+};
 
 function ConvertQuiz() {
     Format();
@@ -106,8 +112,8 @@ function newMultiSelect(lineBlock) {
     multiSelect.NewQuestion = 'MS';
     multiSelect.Title = '';
     multiSelect.QuestionText = '"' + lineBlock[0] + '"';
-    multiSelect.Points = 1;
-    multiSelect.Difficulty = 1;
+    multiSelect.Points = config.questionScore;
+    multiSelect.Difficulty = config.difficultyScore;
     multiSelect.Options = [];
     /* Starts at one because the first line of lineBlock is the question*/
     for (var optionIndex = 1; optionIndex < lineBlock.length; optionIndex++) {
@@ -145,8 +151,8 @@ function newMultipleChoice(lineBlock) {
     multipleChoice.NewQuestion = 'MC';
     multipleChoice.Title = '';
     multipleChoice.QuestionText = '"' + lineBlock[0] + '"';
-    multipleChoice.Points = 1;
-    multipleChoice.Difficulty = 1;
+    multipleChoice.Points = config.questionScore;
+    multipleChoice.Difficulty = config.difficultyScore;
     multipleChoice.Options = [];
     /* Starts at one because the first line of lineBlock is the question*/
     for (var optionIndex = 1; optionIndex < lineBlock.length; optionIndex++) {
@@ -184,8 +190,8 @@ function newTrueFalse(lineBlock) {
     trueFalse.NewQuestion = 'TF';
     trueFalse.Title = '';
     trueFalse.QuestionText = '"' + lineBlock[0] + '"';
-    trueFalse.Points = 1;
-    trueFalse.Difficulty = 1;
+    trueFalse.Points = config.questionScore;
+    trueFalse.Difficulty = config.difficultyScore;
     trueFalse.TRUE = 0;
     trueFalse.FALSE = 0;
     if (lineBlock[1].toLowerCase() === "true") {
@@ -285,6 +291,38 @@ function downloadCSV(args) {
 //Global on page ready function scripts. 
 $(window).on('load', function () {
     $("textarea").linedtextarea();
+
+    $('#score-input').on('change', function () {
+        if (this.value !== undefined && this.value !== '') {
+            if (this.value > 99) {
+                this.value = 99;
+            }
+            if (this.value < 1) {
+                this.value = 1;
+            }
+        } else {
+            this.value = 1;
+        }
+        config.questionScore = this.value;
+    });
+
+    $('#difficulty-input').on('change', function () {
+        if (this.value !== undefined && this.value !== '') {
+            if (this.value > 99) {
+                this.value = 99;
+            }
+            if (this.value < 1) {
+                this.value = 1;
+            }
+        } else {
+            this.value = 1;
+        }
+        config.difficultyScore = this.value;
+    });
+
+    $('#enumeration-input').on('change', function () {
+        config.removeEnumeration = this.value;
+    });
 });
 
 function Format() {
