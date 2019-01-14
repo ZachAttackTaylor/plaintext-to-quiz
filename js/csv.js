@@ -330,7 +330,7 @@ $(window).on('load', function () {
     });
 
     $('#enumeration-input').on('change', function () {
-        config.removeEnumeration = this.value;
+        config.removeEnumeration = this.checked;
     });
 });
 
