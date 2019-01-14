@@ -71,6 +71,10 @@ function ConvertQuiz() {
 }
 
 function EvaluateBlock(lineBlock, lineIndex) {
+    if (config.removeEnumeration) {
+        lineBlock[0] = removeEnumeration(lineBlock[0]);
+    }
+
     if (lineBlock.length === 1) {
         //Error, no answer options
         errorHandler.addError("Error on line " + (lineIndex + 1) + ": There are no answer options provided for question: \"" + lineBlock[0] + "\"");
@@ -261,6 +265,11 @@ function isSpaces(testString) {
     var justSpaces = /^\s+$/;
     return justSpaces.test(testString);
 }
+
+function removeEnumeration(testString) {
+    return (testString.replace(/^(([1-9][0-9])|([1-9])){1}(\.|\))?/g, "").trim());
+}
+
 /* 
 
 Grimes, C. (2015, May 28). Use JavaScript to Export Your Data as CSV [Program documentation]. 
